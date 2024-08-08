@@ -121,7 +121,13 @@
         nav ul li a:hover, .dropdown-button:hover {
             color: #292570;
         }
-
+nav ul ul{
+    position: absolute;
+    left: 250px;
+    width: 200px;
+    top: 0;
+   
+}
         .dropdown-content {
             display: none;
             position: relative;
@@ -284,6 +290,7 @@
             <li><a href="#">الصفحة الرئيسية</a></li>
             <li class="dropdown">
                 <span class="dropdown-button">الفئات</span>
+                <ul>
                 <div class="dropdown-content">
                     <a href="#">طلب ويبكس</a>
                     <a href="#">الطابعات والباركود</a>
@@ -291,7 +298,8 @@
                     <a href="#">الشبكة</a>
                     <a href="#">البريد الالكتروني</a>
                     <a href="#">دعم هاتف Cisco</a>
-                </div>
+               </ul>
+             </div>
             </li>
         </ul>
     </nav>

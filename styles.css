@@ -1,0 +1,342 @@
+body {
+    font-family: 'Almarai', sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    text-align: right;
+    background: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    background: #fff;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    margin-right: 20px;
+    width: 90px; /* Set your desired width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+.logo-search {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    padding-right: 45px;
+    margin-right: 30px;
+}
+
+.menu-icon img {
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+}
+
+/* Search box */
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 230px; /* Control the width of the search box */
+}
+
+/* The text we write in the search box */
+.search-container input[type="text"] {
+    width: 100%;
+    padding: 7px 45px 10px 15px; /* Add padding to the right to make room for the icon */
+    border: 1px solid #cecece; /* Border color */
+    border-radius: 16px; /* Rounded corners */
+    outline: none;
+    font-family: 'Almarai', sans-serif;
+    font-size: 18px; /* Font size */
+    color: #6f6f6f; /* Text color */
+}
+
+/* The text that appear auto in the search box "بحث" */
+.search-container input[type="text"]::placeholder {
+    color: #878787; /* Placeholder color */
+}
+
+.search-icon {
+    position: absolute;
+    right: 8px; /* Adjust the position to your liking */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px; /* Adjust the icon size */
+    height: 28px; /* Adjust the icon size */
+    pointer-events: none; /* Prevents the icon from being clickable */
+}
+
+
+
+nav {
+    background: #fff;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Change right to left for left side menu */
+    transition: left 0.3s ease; /* Change right to left */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-top: 60px;
+}
+
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Change left to right for left side menu */
+    cursor: pointer;
+    padding: 5px;
+    background: none;
+    border: none;
+}
+
+.close-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 20px 0;
+    position: relative;
+}
+
+nav ul li a, .dropdown-button {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    display: block;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+nav ul li a:hover, .dropdown-button:hover {
+    color: #292570;
+}
+
+nav ul ul {
+    position: absolute;
+    left: 250px;
+    width: 200px;
+    top: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: right;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-submenu .dropdown-content {
+    top: 0;
+    right: 100%;
+    margin-right: 1px; /* Adjust this value to control the gap between the parent and child menus */
+}
+
+nav.open {
+    left: 0; /* Change right to left for left side menu */
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+/* Big title of the page */
+.intro h1 {
+    font-family: 'Almarai', sans-serif;
+    margin: 0;
+    font-size: 40px;
+    color: #292570;
+    margin-top: 160px;
+    line-height: 1.4; 
+    margin-right: 64px;
+}
+
+/* Intro of the page */
+.intro p {
+    font-family: 'Almarai', sans-serif;
+    color: #717171;
+    font-size: 20px;
+    line-height: 1.6; 
+    padding-bottom: 20px;
+    margin-right: 64px;
+
+}
+
+/* Container */
+.categories {
+    background: #F6F6F6;
+    padding: 50px;
+    border-radius: 10px;
+    max-width: 900px;
+    width: 100%;
+    
+}
+
+/* Category Title */
+.categories h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    margin-right: 18px;
+    color: #333;
+    text-align: right;
+}
+
+/* Space between Category Boxes */
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+    row-gap: 30px;
+    justify-content: center;
+}
+
+.category {
+    background: #fff;
+    border-radius: 16px;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+    height: 110px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.category img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* Category Names */
+.category p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.category:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
+footer {
+    background: #fff;
+    
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 14px solid #4F84B0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    max-height: 40px; 
+}
+
+.footer-left img {
+    width: 70px; 
+    height: auto; /* Maintain aspect ratio */
+}
+
+.footer-right img {
+    width: 152px;
+    height: auto; /* Maintain aspect ratio */
+}
+
+.footer-left,
+.footer-right {
+    display: flex;
+    align-items: center;
+}
+
+.footer-left img,
+.footer-right img {
+    flex-shrink: 0; /* Prevent images from shrinking */
+}
+
+
+.copyright {
+    color: #A6A6A6;
+    margin-top: auto; 
+    text-align: center; 
+    flex: 1; 
+    font-size: 14px; 
+}
+
+/* Position the Frame 133610.png image on the right side */
+.triangle-img {
+    position: absolute;
+    left: 0;
+    top: 0; 
+    bottom: 197px;
+    width: 285px;
+    z-index: 1;
+}
+
+.top-offset {
+    top: 92px; /* Adjust as needed */
+}

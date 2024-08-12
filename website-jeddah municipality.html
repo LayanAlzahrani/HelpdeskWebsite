@@ -89,24 +89,17 @@
             </section>
 
             <!-- Subcategories -->
-            <section class="categories" id="subcategory-section" style="display: none;">
+            <section class="subcategories" id="subcategory-section">
                 <div class="back-container">
                     <button onclick="goBack()">
                         <img src="icons/arrow-left.svg" alt="Back Arrow">
                     </button>
                     <div id="selected-category"></div>
                 </div>
-                <h2 style="font-size:24px ;">إختر نوع المشكلة</h2>
-                <div class="subcategory-grid">
-                    <div class="subcategory">
-                        <p>فئة فرعية 1</p>
-                    </div>
-                    <div class="subcategory">
-                        <p>فئة فرعية 2</p>
-                    </div>
-                </div>
+                <h2 style="font-size:20px ;">إختر نوع المشكلة</h2>
+                <div class="subcategory-grid" id="subcategory-grid"></div>
             </section>
-            
+
         </div>
     </main>
 
@@ -128,32 +121,117 @@
             menu.classList.toggle('open');
         }
 
-        function showSubcategories(category) {
-            document.getElementById('category-section').style.display = 'none';
-            document.getElementById('subcategory-section').style.display = 'block';
-
-            let selectedCategoryElement = document.getElementById('selected-category');
-            selectedCategoryElement.innerHTML = ''; // Clear previous content
-
-            if (category === 'webex') {
-                selectedCategoryElement.innerHTML = '<img src="icons/webex.png" alt="Webex"><p>طلب ويبكس</p>';
-            } else if (category === 'printers') {
-                selectedCategoryElement.innerHTML = '<img src="icons/Printer.png" alt="Printers"><p>الطابعات والباركود</p>';
-            } else if (category === 'support') {
-                selectedCategoryElement.innerHTML = '<img src="icons/IT Support.png" alt="Technical Support"><p>دعم تقني</p>';
-            } else if (category === 'network') {
-                selectedCategoryElement.innerHTML = '<img src="icons/Network.png" alt="Network"><p>الشبكة</p>';
-            } else if (category === 'cisco') {
-                selectedCategoryElement.innerHTML = '<img src="icons/Cisco.png" alt="Cisco Support"><p>دعم هاتف Cisco</p>';
-            } else if (category === 'email') {
-                selectedCategoryElement.innerHTML = '<img src="icons/Email.png" alt="Email"><p>البريد الالكتروني</p>';
+        const categories = {
+            email: {
+                name: 'البريد الالكتروني',
+                icon: 'icons/Email.png',
+                color: '#FFE0F2',
+                subcategories: [
+                    'لا تصل الايميلات الجديده',
+                    'ارشفة البريد الالكتروني'
+                ]
+            },
+            cisco: {
+                name: 'دعم هواتف Cisco',
+                icon: 'icons/Cisco.png',
+                color: '#C0CADC',
+                subcategories: [
+                    'إنشاء تقرير',
+                    'إقفال سهولة الوصول'
+                ]
+            },
+            support: {
+                name: 'دعم تقني',
+                icon: 'icons/IT Support.png',
+                color: '#D1F7FD',
+                subcategories: [
+                    'تشغيل نظام دورة حياة المشاريع',
+                    'تشغيل نظام شامل (تابع لديوان المحاسبة)'
+                ]
+            },
+            printers: {
+                name: 'الطابعات والباركود',
+                icon: 'icons/Printer.png',
+                color: '#E4DAFF',
+                subcategories: [
+                    'Paper cut',
+                    'طلب تعريف ماسح ضوئي'
+                ]
+            },
+            network: {
+                name: 'الشبكة',
+                icon: 'icons/Network.png',
+                color: '#FFF0CF',
+                subcategories: [
+                    'تفعيل نقطة شبكة (ادارات و محافظات و بلديات)',
+                    'الانترنت لايعمل (داخل المبنى)'
+                ]
+            },
+            webex: {
+                name: 'طلب ويبكس',
+                icon: 'icons/webex.png',
+                color: '#D0E6F9',
+                subcategories: [
+                    'لا توجد ايقونة عمل اجتماعات'
+                ]
             }
-        }
+        };
 
-        function goBack() {
-            document.getElementById('subcategory-section').style.display = 'none';
-            document.getElementById('category-section').style.display = 'block';
-        }
+        function showSubcategories(category) {
+    const selectedCategory = categories[category];
+
+    // Hide the category section with animation
+    const categorySection = document.getElementById('category-section');
+    categorySection.classList.add('hide');
+    
+    setTimeout(() => {
+        categorySection.style.display = 'none';
+        
+        const subcategorySection = document.getElementById('subcategory-section');
+        subcategorySection.style.display = 'block';
+        
+        // Delay to allow the browser to acknowledge the display change
+        setTimeout(() => {
+            subcategorySection.classList.add('show');
+        }, 10);
+    }, 500);
+
+    let selectedCategoryElement = document.getElementById('selected-category');
+    selectedCategoryElement.innerHTML = `
+        <img src="${selectedCategory.icon}" alt="${selectedCategory.name}">
+        <p>${selectedCategory.name}</p>
+    `;
+
+    const subcategoryGrid = document.getElementById('subcategory-grid');
+    subcategoryGrid.innerHTML = '';
+
+    selectedCategory.subcategories.forEach(sub => {
+        subcategoryGrid.innerHTML += `
+            <div class="subcategory" style="box-shadow: 1px 3px 3px ${selectedCategory.color};">
+                <img src="icons/arrow-left-01.svg" alt="Arrow Icon" class="arrow-icon">
+                <p class="subcategory-text">${sub}</p>
+            </div>
+        `;
+    });
+}
+
+function goBack() {
+    const subcategorySection = document.getElementById('subcategory-section');
+    subcategorySection.classList.remove('show');
+    
+    setTimeout(() => {
+        subcategorySection.style.display = 'none';
+        
+        const categorySection = document.getElementById('category-section');
+        categorySection.style.display = 'block';
+        
+        // Delay to allow the browser to acknowledge the display change
+        setTimeout(() => {
+            categorySection.classList.remove('hide');
+        }, 10);
+    }, 500);
+}
+
 
     </script>
 </body>

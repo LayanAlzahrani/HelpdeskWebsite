@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دليل حل المشاكل التقنية في أمانة جدة</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
         <img src="jeddah-municipality-logo-.png" alt="Logo" class="header-logo">
@@ -14,14 +16,14 @@
                 <input type="text" placeholder="بحث">
                 <img src="icons\Search.svg" alt="Search Icon" class="search-icon">
             </div>
-            
-            
+
+
             <div class="menu-icon" onclick="toggleMenu()">
                 <img id="logo" src="icons\menu.svg" alt="Menu">
             </div>
         </div>
     </header>
-    
+
     <!-- The triangle image positioned on the right side -->
     <img class="triangle-img top-offset" src="Frame 133610.png" alt="Triangle">
 
@@ -34,13 +36,13 @@
             <li class="dropdown">
                 <span class="dropdown-button">الفئات</span>
                 <ul>
-                <div class="dropdown-content">
-                    <a href="#">طلب ويبكس</a>
-                    <a href="#">الطابعات والباركود</a>
-                    <a href="#">دعم تقني</a>
-                    <a href="#">الشبكة</a>
-                    <a href="#">البريد الالكتروني</a>
-                    <a href="#">دعم هاتف Cisco</a>
+                    <div class="dropdown-content">
+                        <a href="#">طلب ويبكس</a>
+                        <a href="#">الطابعات والباركود</a>
+                        <a href="#">دعم تقني</a>
+                        <a href="#">الشبكة</a>
+                        <a href="#">البريد الالكتروني</a>
+                        <a href="#">دعم هاتف Cisco</a>
                 </ul>
                 </div>
             </li>
@@ -51,42 +53,67 @@
         <div>
             <section class="intro">
                 <h1>دليل حل المشاكل التقنية <br>في أمانة جدة</h1>
-                <p>يدعم الموظفين والمدربين في المشاكل التقنية من خلال توفير دليل <br>يحتوي على كافة التعليمات الخاصة بهم</p>
+                <p>يدعم الموظفين والمدربين في المشاكل التقنية من خلال توفير دليل <br>يحتوي على كافة التعليمات الخاصة بهم
+                </p>
             </section>
-            <section class="categories">
+
+            <!-- Category Section -->
+            <section class="categories" id="category-section">
                 <h2>الفئات</h2>
                 <div class="category-grid">
-                    <div class="category">
-                        <img src="icons\Cisco.png" alt="Webex">
+                    <div class="category" id="webex" onclick="showSubcategories('webex')">
+                        <img src="icons\webex.png" alt="Webex">
                         <p>طلب ويبكس</p>
                     </div>
-                    <div class="category">
+                    <div class="category" id="printers" onclick="showSubcategories('printers')">
                         <img src="icons\Printer.png" alt="Printers and Records">
                         <p>الطابعات والباركود</p>
                     </div>
-                    <div class="category">
+                    <div class="category" id="support" onclick="showSubcategories('support')">
                         <img src="icons\IT Support.png" alt="Technical Support">
                         <p>دعم تقني</p>
                     </div>
-                    <div class="category">
+                    <div class="category" id="network" onclick="showSubcategories('network')">
                         <img src="icons\Network.png" alt="Network">
                         <p>الشبكة</p>
                     </div>
-                    <div class="category">
+                    <div class="category" id="cisco" onclick="showSubcategories('cisco')">
                         <img src="icons\Cisco.png" alt="Cisco Support">
                         <p>دعم هاتف Cisco</p>
                     </div>
-                    <div class="category">
+                    <div class="category" id="email" onclick="showSubcategories('email')">
                         <img src="icons\Email.png" alt="Email">
                         <p>البريد الالكتروني</p>
                     </div>
                 </div>
             </section>
+
+            <!-- Subcategories -->
+            <section class="categories" id="subcategory-section" style="display: none;">
+                <div class="back-container">
+                    <button onclick="goBack()">
+                        <img src="icons/arrow-left.svg" alt="Back Arrow">
+                    </button>
+                    <div id="selected-category"></div>
+                </div>
+                <h2 style="font-size:24px ;">إختر نوع المشكلة</h2>
+                <div class="subcategory-grid">
+                    <div class="subcategory">
+                        <p>فئة فرعية 1</p>
+                    </div>
+                    <div class="subcategory">
+                        <p>فئة فرعية 2</p>
+                    </div>
+                </div>
+            </section>
+            
         </div>
     </main>
-    
+
+
+
     <footer>
-        <div class="footer-right">
+        <div class="footer-right buttom-offset">
             <img src="Frame 133612.png" alt="Left Image">
         </div>
         <p class="copyright">Copyright &copy; Nuran Muyini & Layan Alzahrani</p>
@@ -100,6 +127,35 @@
             const menu = document.getElementById('side-menu');
             menu.classList.toggle('open');
         }
+
+        function showSubcategories(category) {
+            document.getElementById('category-section').style.display = 'none';
+            document.getElementById('subcategory-section').style.display = 'block';
+
+            let selectedCategoryElement = document.getElementById('selected-category');
+            selectedCategoryElement.innerHTML = ''; // Clear previous content
+
+            if (category === 'webex') {
+                selectedCategoryElement.innerHTML = '<img src="icons/webex.png" alt="Webex"><p>طلب ويبكس</p>';
+            } else if (category === 'printers') {
+                selectedCategoryElement.innerHTML = '<img src="icons/Printer.png" alt="Printers"><p>الطابعات والباركود</p>';
+            } else if (category === 'support') {
+                selectedCategoryElement.innerHTML = '<img src="icons/IT Support.png" alt="Technical Support"><p>دعم تقني</p>';
+            } else if (category === 'network') {
+                selectedCategoryElement.innerHTML = '<img src="icons/Network.png" alt="Network"><p>الشبكة</p>';
+            } else if (category === 'cisco') {
+                selectedCategoryElement.innerHTML = '<img src="icons/Cisco.png" alt="Cisco Support"><p>دعم هاتف Cisco</p>';
+            } else if (category === 'email') {
+                selectedCategoryElement.innerHTML = '<img src="icons/Email.png" alt="Email"><p>البريد الالكتروني</p>';
+            }
+        }
+
+        function goBack() {
+            document.getElementById('subcategory-section').style.display = 'none';
+            document.getElementById('category-section').style.display = 'block';
+        }
+
     </script>
 </body>
+
 </html>

@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Almarai', sans-serif;
     margin: 0;
@@ -303,7 +304,7 @@ footer {
 }
 
 .footer-right img {
-    width: 152px;
+    width: 154px;
     height: auto; /* Maintain aspect ratio */
 }
 
@@ -339,4 +340,106 @@ footer {
 
 .top-offset {
     top: 92px; /* Adjust as needed */
+}
+
+.back-container {
+    display: flex;
+    align-items: center;
+    
+}
+
+/* Container */
+.back-container button {
+    background-color: #fff;
+    color: white;
+    border: none;
+    padding: 12px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.back-container button:hover {
+    background-color: #fff;
+}
+
+.back-container button img {
+    width: 17px; 
+    height: 15px; 
+}
+
+
+#selected-category {
+    background: #fff;
+    border-radius: 16px;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+    height: 110px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+    margin-top: 107px;
+
+}
+
+#selected-category img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    
+}
+
+#selected-category p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.subcategory-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    row-gap: 30px;
+    justify-content: center;
+}
+
+.subcategory {
+    background: #fff;
+    border-radius: 16px;
+    text-align: right;
+    padding: 20px;
+    width: 280px;
+    height: 30px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.subcategory img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* Category Names */
+.subcategory p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.subcategory:hover {
+    background: #fff;
+    transform: scale(1.05);
 }

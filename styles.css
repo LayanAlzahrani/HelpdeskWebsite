@@ -345,20 +345,20 @@ footer {
 .back-container {
     display: flex;
     align-items: center;
-    
+    margin-bottom: 5px;
+    gap: 0px;
 }
-
 /* Container */
 .back-container button {
     background-color: #fff;
     color: white;
     border: none;
-    padding: 12px 14px;
+    padding: 5px 10px;
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-    margin-left: 20px;
+    margin-left: 5px;
 }
 
 .back-container button:hover {
@@ -467,5 +467,102 @@ footer {
     background: #fff;
     transform: scale(1.05);
 }
+.subcategory .solution {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+    font-style: italic;
+    white-space: pre-line; /* Allows line breaks in the solution text */
+}
+/* Breadcrumb Styling */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 46px;
+    color: #292570;
+    margin-top: 100px;
+}
 
+/* Subcategory Container */
+.subcategory-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    gap:0px;
+    margin-bottom: 70px;
+}
+
+.subcategory-item {
+    padding: 5px;
+    cursor: pointer;
+    flex: 1 1 calc(33.333% - 40px); /* Adjust width as needed */
+    text-align: right;
+    display: flex;
+  
+}
+
+.subcategory-item:hover {
+    background-color: #d8d4d4; /* Lighter shade on hover */
+    border-radius: 12px;
+    width: 250px;
+    height: 10px;
+ 
+   
+}
+/* Solution Box */
+.solution-box {
+    background: #fff;
+    padding: 25px 30px; /* Adjust padding for a tighter fit */
+    padding-top: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    display: block; /* Ensure it's visible */
+    max-width: 900px; /* Control the width */
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* Solution Title */
+.h2-solution {
+    font-size: 22px;
+    background: #87D3E0;
+    border-radius:5px; ;
+    padding: 4px;
+    width: 110px;
+    margin-right:18px;
+    text-align: center;
+    height: 20px;
+    padding-right:8px ;
+    padding-left: 8px;
+    color: #fff;
+   margin-bottom:-20px ;
+
+}
+
+.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+
+
+}
+
+.back-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.polegone-logo {
+    width: 18px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 8px; /* Space between logo and text */
+    margin-left: 8px;
+}
+.subcategory-text {
+    margin: 0; /* Ensure there's no extra margin */
+}
 

@@ -51,44 +51,43 @@
 
     <main>
         <div>
-            <section class="intro">
+            <section class="intro" id="intro-section">
                 <h1>دليل حل المشاكل التقنية <br>في أمانة جدة</h1>
-                <p>يدعم الموظفين والمدربين في المشاكل التقنية من خلال توفير دليل <br>يحتوي على كافة التعليمات الخاصة بهم
-                </p>
+                <p>يدعم الموظفين والمدربين في المشاكل التقنية من خلال توفير دليل <br>يحتوي على كافة التعليمات الخاصة بهم</p>
             </section>
-
+    
             <!-- Category Section -->
             <section class="categories" id="category-section">
                 <h2>الفئات</h2>
                 <div class="category-grid">
                     <div class="category" id="webex" onclick="showSubcategories('webex')">
-                        <img src="icons\webex.png" alt="Webex">
+                        <img src="icons/webex.png" alt="Webex">
                         <p>طلب ويبكس</p>
                     </div>
                     <div class="category" id="printers" onclick="showSubcategories('printers')">
-                        <img src="icons\Printer.png" alt="Printers and Records">
+                        <img src="icons/Printer.png" alt="Printers and Records">
                         <p>الطابعات والباركود</p>
                     </div>
                     <div class="category" id="support" onclick="showSubcategories('support')">
-                        <img src="icons\IT Support.png" alt="Technical Support">
+                        <img src="icons/IT Support.png" alt="Technical Support">
                         <p>دعم تقني</p>
                     </div>
                     <div class="category" id="network" onclick="showSubcategories('network')">
-                        <img src="icons\Network.png" alt="Network">
+                        <img src="icons/Network.png" alt="Network">
                         <p>الشبكة</p>
                     </div>
                     <div class="category" id="cisco" onclick="showSubcategories('cisco')">
-                        <img src="icons\Cisco.png" alt="Cisco Support">
+                        <img src="icons/Cisco.png" alt="Cisco Support">
                         <p>دعم هاتف Cisco</p>
                     </div>
                     <div class="category" id="email" onclick="showSubcategories('email')">
-                        <img src="icons\Email.png" alt="Email">
+                        <img src="icons/Email.png" alt="Email">
                         <p>البريد الالكتروني</p>
                     </div>
                 </div>
             </section>
-
-            <!-- Subcategories -->
+    
+            <!-- Subcategories Section -->
             <section class="subcategories" id="subcategory-section">
                 <div class="back-container">
                     <button onclick="goBack()">
@@ -99,12 +98,24 @@
                 <h2 style="font-size:20px ;">إختر نوع المشكلة</h2>
                 <div class="subcategory-grid" id="subcategory-grid"></div>
             </section>
+           <!-- Solution Section -->
+<section class="solution" id="solution-section" style="display: none;">
+    <div class="breadcrumb">
+        <button class="back-button" onclick="goBack()">
+            <img src="icons/arrow-left.svg" alt="Back Arrow">
+        </button>
+        <span id="selected-category-breadcrumb"></span>
+    </div>
+    <div class="subcategory-container" id="subcategory-container">
+    </div>
+    <h2 class="h2-solution">حل المشكلة</h2>
+    <div class="solution-box" id="solution-box">
+        <div id="solution-content"></div>
+    </div>
+</section>
 
         </div>
     </main>
-
-
-
     <footer>
         <div class="footer-right buttom-offset">
             <img src="Frame 133612.png" alt="Left Image">
@@ -122,62 +133,71 @@
         }
 
         const categories = {
-            email: {
-                name: 'البريد الالكتروني',
-                icon: 'icons/Email.png',
-                color: '#FFE0F2',
-                subcategories: [
-                    'لا تصل الايميلات الجديده',
-                    'ارشفة البريد الالكتروني'
-                ]
-            },
-            cisco: {
-                name: 'دعم هواتف Cisco',
-                icon: 'icons/Cisco.png',
-                color: '#C0CADC',
-                subcategories: [
-                    'إنشاء تقرير',
-                    'إقفال سهولة الوصول'
-                ]
-            },
-            support: {
-                name: 'دعم تقني',
-                icon: 'icons/IT Support.png',
-                color: '#D1F7FD',
-                subcategories: [
-                    'تشغيل نظام دورة حياة المشاريع',
-                    'تشغيل نظام شامل (تابع لديوان المحاسبة)'
-                ]
-            },
-            printers: {
-                name: 'الطابعات والباركود',
-                icon: 'icons/Printer.png',
-                color: '#E4DAFF',
-                subcategories: [
-                    'Paper cut',
-                    'طلب تعريف ماسح ضوئي'
-                ]
-            },
-            network: {
-                name: 'الشبكة',
-                icon: 'icons/Network.png',
-                color: '#FFF0CF',
-                subcategories: [
-                    'تفعيل نقطة شبكة (ادارات و محافظات و بلديات)',
-                    'الانترنت لايعمل (داخل المبنى)'
-                ]
-            },
-            webex: {
-                name: 'طلب ويبكس',
-                icon: 'icons/webex.png',
-                color: '#D0E6F9',
-                subcategories: [
-                    'لا توجد ايقونة عمل اجتماعات'
-                ]
-            }
-        };
+    email: {
+        name: 'البريد الالكتروني',
+        icon: 'icons/Email.png',
+        color: '#FFE0F2',
+        subcategories: {
+            'لا تصل الايميلات الجديده': 'التأكد من مكافي',
+            'ارشفة البريد الالكتروني': 'صور من الPDF',
+            'العمل دون اتصال للبريد':'pdf'
+        }
+    },
+    cisco: {
+        name: 'دعم هواتف Cisco',
+        icon: 'icons/Cisco.png',
+        color: '#C0CADC',
+        subcategories: {
+            'انشاء تقرير': `لمعرفة الخطوات قم بالضغط على 
+            <a href="https://1drv.ms/w/s!Aov6g2brkEr1q2ac4jAhwFDoXEn0?e=G5jWtY" "target="_blank" style="color: blue; text-decoration: underline;">انشاء تقرير</a>.`,
+            'إقفال سهولة الوصول': `1. الذهاب الى اعدادات الهاتف<br>
+                                    2. Accessability<br>
+                                    3. Voice Feedback -> Off`
+        }
+    },
+    support: {
+        name: 'دعم تقني',
+        icon: 'icons/IT Support.png',
+        color: '#D1F7FD',
+        subcategories: {
+            'تشغيل نظام دورة حياة المشاريع': '',
+            'تشغيل نظام شامل (تابع لديوان المحاسبة)': 'PDF',
+             'تغير كلمة المرور':'pdf'
+        }
+    },
+    printers: {
+        name: 'الطابعات والباركود',
+        icon: 'icons/Printer.png',
+        color: '#E4DAFF',
+        subcategories: {
+            'Paper cut':`لمعرفة الخطوات قم بالضغط على 
+            <a href="https://1drv.ms/b/s!Aov6g2brkEr1q2llJsAwEKDbKCr6?e=yVPORM" "target="_blank" style="color: blue; text-decoration: underline;"> دليل نظام ادارة الطابعة</a>`, 
+            'طلب تعريف ماسح ضوئي': `الذهاب الى ملف المشاركة (موجود تحت) بعدها الى مجلد helpdeskdriver بعدها مجلد scanner بعدها على حسب نوع الموديل يتم التعريف`
+        }
+    },
+    network: {
+        name: 'الشبكة',
+        icon: 'icons/Network.png',
+        color: '#FFF0CF',
+        subcategories: {
+            'تفعيل نقطة شبكة (ادارات و محافظات و بلديات)': `يتم اخذ الماك ادرس مع اخر اتصال للشبكة وتحويل البلاغ لقسم الشبكات<br>
+                                                        ((في حالة عدم اتصال الجهاز بالشبكة لمدة اكثر من شهر يتم عمل فورمات))`,
+            'الانترنت لايعمل (داخل المبنى)': 'اضافة بروكسي والتأكد من صلاحيات الانترنت',
+            'استخراج عنوان الIP':'pdf'
+        }
+    },
+    webex: {
+        name: 'طلب ويبكس',
+        icon: 'icons/webex.png',
+        color: '#D0E6F9',
+        subcategories: {
+            'لا توجد ايقونة عمل اجتماعات': `تحميل الأداة عن طريق الدخول الى ملف الشير 192.168.100.63 -< software -< Csico Webex -< تحميل الاداة<br>
+                                            الاسم: webexplugin`
+        }
+    }
+};
 
-        function showSubcategories(category) {
+function showSubcategories(category) {
     const selectedCategory = categories[category];
 
     // Hide the category section with animation
@@ -205,33 +225,106 @@
     const subcategoryGrid = document.getElementById('subcategory-grid');
     subcategoryGrid.innerHTML = '';
 
-    selectedCategory.subcategories.forEach(sub => {
+    for (let sub in selectedCategory.subcategories) {
         subcategoryGrid.innerHTML += `
-            <div class="subcategory" style="box-shadow: 1px 3px 3px ${selectedCategory.color};">
+            <div class="subcategory" onclick="showSolution('${category}', '${sub}')" style="box-shadow: 1px 3px 3px ${selectedCategory.color};">
                 <img src="icons/arrow-left-01.svg" alt="Arrow Icon" class="arrow-icon">
                 <p class="subcategory-text">${sub}</p>
             </div>
         `;
-    });
+    }
+
+    // Set the selected category in the breadcrumb
+    document.getElementById('selected-category-breadcrumb').textContent = selectedCategory.name;
+
+    const subcategoryContainer = document.getElementById('subcategory-container');
+    subcategoryContainer.innerHTML = '';
+
+    for (let sub in selectedCategory.subcategories) {
+        subcategoryContainer.innerHTML += `
+            <div class="subcategory-item" onclick="showSolution('${category}', '${sub}')">
+                <img src="icons/Polygon 13.png" alt="Polegone Logo" class="polegone-logo">
+                <p class="subcategory-text">${sub}</p>
+            </div>
+        `;
+    }
 }
 
-function goBack() {
+function showSolution(category, subcategory) {
+    const selectedCategory = categories[category];
+    const solutionText = selectedCategory.subcategories[subcategory];
+
+    // Hide the intro section when displaying the solution section
+    const introSection = document.getElementById('intro-section');
+    if (introSection) {
+        introSection.style.display = 'none';
+    }
+
+    // Hide the subcategory section and show the solution section
     const subcategorySection = document.getElementById('subcategory-section');
     subcategorySection.classList.remove('show');
     
     setTimeout(() => {
         subcategorySection.style.display = 'none';
         
-        const categorySection = document.getElementById('category-section');
-        categorySection.style.display = 'block';
+        const solutionSection = document.getElementById('solution-section');
+        solutionSection.style.display = 'block';
+        
+        // Show the solution box and set its content
+        const solutionBox = document.getElementById('solution-box');
+        solutionBox.style.display = 'block';
+        
+        document.getElementById('solution-content').innerHTML = `
+            <p>${solutionText}</p>
+        `;
         
         // Delay to allow the browser to acknowledge the display change
         setTimeout(() => {
-            categorySection.classList.remove('hide');
+            solutionSection.classList.add('show');
         }, 10);
     }, 500);
 }
+function goBack() {
+    const solutionSection = document.getElementById('solution-section');
+    const subcategorySection = document.getElementById('subcategory-section');
+    const categorySection = document.getElementById('category-section');
+    const introSection = document.getElementById('intro-section');
 
+    if (solutionSection.style.display === 'block') {
+        // If currently in the solution section, go back to subcategories
+        solutionSection.classList.remove('show');
+        
+        setTimeout(() => {
+            solutionSection.style.display = 'none';
+            subcategorySection.style.display = 'block';
+            
+            // Delay to allow the browser to acknowledge the display change
+            setTimeout(() => {
+                subcategorySection.classList.add('show');
+            }, 10);
+        }, 500);
+        
+        // Show the intro section again
+        if (introSection) {
+            introSection.style.display = 'block';
+        }
+        
+    } else if (subcategorySection.style.display === 'block') {
+        // If currently in the subcategories section, go back to categories
+        subcategorySection.classList.remove('show');
+        
+        setTimeout(() => {
+            subcategorySection.style.display = 'none';
+            categorySection.style.display = 'block';
+            categorySection.classList.remove('hide');
+
+            // Show the intro section when back at the main categories section
+            if (introSection) {
+                introSection.style.display = 'block';
+            }
+        }, 500);
+    }
+}
 
     </script>
 </body>

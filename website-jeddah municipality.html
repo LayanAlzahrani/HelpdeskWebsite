@@ -100,7 +100,7 @@
 <section class="solution" id="solution-section" style="display: none;">
     <div class="breadcrumb">
         <button class="back-button" onclick="goBack()">
-            <img src="icons/arrow-left.svg" alt="Back Arrow">
+            <img src="icons/arrow-left-02.png" alt="Back Arrow">
         </button>
         <span id="selected-category-breadcrumb"></span>
     </div>
@@ -134,6 +134,20 @@
     const dropdownContent = document.querySelector('.dropdown-content');
     dropdownContent.classList.toggle('show');
 }
+// Select all the subcategory items
+const subcategoryItems = document.querySelectorAll('.subcategory-item');
+
+// Add a click event listener to each item
+subcategoryItems.forEach(item => {
+    item.addEventListener('click', function() {
+        // Remove the 'selected' class from all items
+        subcategoryItems.forEach(el => el.classList.remove('selected'));
+        
+        // Add the 'selected' class to the clicked item
+        this.classList.add('selected');
+    });
+});
+
 
 document.querySelector('.dropdown-button').addEventListener('click', toggleDropdown);
 

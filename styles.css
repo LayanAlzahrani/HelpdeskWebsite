@@ -456,17 +456,17 @@ footer {
 }
 
 
-/* Category Names */
-.subcategory-text {
+/* Category Names  */
+.subcategory-text  {
     margin: 0;
-    font-size: 16px;
+    font-size: 18px;
     color: #333;
 }
-
 .subcategory:hover {
     background: #fff;
     transform: scale(1.05);
 }
+
 .subcategory .solution {
     font-size: 14px;
     color: #555;
@@ -478,38 +478,40 @@ footer {
 .breadcrumb {
     display: flex;
     align-items: center;
-    font-size: 46px;
+    font-size: 40px ;
+    font-weight: bold;
     color: #292570;
-    margin-top: 100px;
+    margin-top: 200px;
+    margin-bottom: 30px;
 }
 
 /* Subcategory Container */
 .subcategory-container {
-    display: flex;
+       display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     position: relative;
-    gap:0px;
-    margin-bottom: 70px;
+    gap:10px;
+    margin-bottom: 150px;
+
 }
 
 .subcategory-item {
+    position: relative;
     padding: 5px;
     cursor: pointer;
     flex: 1 1 calc(33.333% - 40px); /* Adjust width as needed */
     text-align: right;
     display: flex;
-  
 }
 
-.subcategory-item:hover {
+.subcategory-item:hover  {
     background-color: #d8d4d4; /* Lighter shade on hover */
-    border-radius: 12px;
-    width: 250px;
+    border-radius: 4px;
+    width: 400px;
     height: 10px;
- 
-   
 }
+
 /* Solution Box */
 .solution-box {
     background: #fff;
@@ -517,12 +519,12 @@ footer {
     padding-top: 10px;
     border-radius: 12px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    margin-top: 80px;
     display: block; /* Ensure it's visible */
-    max-width: 900px; /* Control the width */
     margin-left: auto;
     margin-right: auto;
-
+    width: 828px;
+    height: 5253.5px;
 }
 
 /* Solution Title */
@@ -531,14 +533,14 @@ footer {
     background: #87D3E0;
     border-radius:5px; ;
     padding: 4px;
-    width: 110px;
-    margin-right:18px;
+    width: 130px;
+    margin-right:24px;
     text-align: center;
-    height: 20px;
+    height: 30px;
     padding-right:8px ;
     padding-left: 8px;
     color: #fff;
-   margin-bottom:-20px ;
+   margin-bottom:-80px ;
 
 }
 
@@ -547,20 +549,22 @@ footer {
     border: none;
     cursor: pointer;
     margin-left: 20px;
+    
 
 
 }
-
 .back-button img {
-    width: 24px;
-    height: 24px;
+    width: 39px;
+    height: 26px;
+    margin-top: 12px;
+
 }
 
 .polegone-logo {
-    width: 18px; /* Adjust the width as needed */
+    width: 10px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     margin-right: 8px; /* Space between logo and text */
-    margin-left: 8px;
+    margin-left: 15px;
 }
 .subcategory-text {
     margin: 0; /* Ensure there's no extra margin */

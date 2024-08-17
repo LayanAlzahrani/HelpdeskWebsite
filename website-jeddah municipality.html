@@ -134,20 +134,6 @@
     const dropdownContent = document.querySelector('.dropdown-content');
     dropdownContent.classList.toggle('show');
 }
-// Select all the subcategory items
-const subcategoryItems = document.querySelectorAll('.subcategory-item');
-
-// Add a click event listener to each item
-subcategoryItems.forEach(item => {
-    item.addEventListener('click', function() {
-        // Remove the 'selected' class from all items
-        subcategoryItems.forEach(el => el.classList.remove('selected'));
-        
-        // Add the 'selected' class to the clicked item
-        this.classList.add('selected');
-    });
-});
-
 
 document.querySelector('.dropdown-button').addEventListener('click', toggleDropdown);
 
@@ -193,8 +179,8 @@ document.querySelector('.dropdown-button').addEventListener('click', toggleDropd
         subcategories: {
             'انشاء تقرير': `لمعرفة الخطوات قم بالضغط على 
             <a href="https://1drv.ms/w/s!Aov6g2brkEr1q2ac4jAhwFDoXEn0?e=G5jWtY" "target="_blank" style="color: blue; text-decoration: underline;">انشاء تقرير</a>.`,
-            'إقفال سهولة الوصول': `1. الذهاب الى اعدادات الهاتف<br>
-                                    2. Accessability<br>
+            'إقفال سهولة الوصول': `1. الذهاب الى اعدادات الهاتف<br><br>
+                                    2. Accessability<br><br>
                                     3. Voice Feedback -> Off`
         }
     },

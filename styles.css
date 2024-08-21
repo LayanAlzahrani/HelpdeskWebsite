@@ -346,7 +346,6 @@ footer {
 .back-container {
     display: flex;
     align-items: center;
-    margin-bottom: 5px;
     gap: 0px;
 }
 /* Container */
@@ -354,12 +353,12 @@ footer {
     background-color: #fff;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 10px 10px;
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-    margin-left: 5px;
+    margin-left: 8px;
 }
 
 .back-container button:hover {
@@ -507,7 +506,7 @@ footer {
 }
 
 .subcategory-item:hover  {
-    background-color: #d8d4d4; /* Lighter shade on hover */
+    background-color: #d8d4d4; 
     border-radius: 4px;
     width: 400px;
     height: 10px;
@@ -566,11 +565,11 @@ footer {
 }
 
 .polegone-logo {
-    width: 10px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 8px; /* Space between logo and text */
+    width: 10px; 
+    height: auto; 
+    margin-right: 8px; 
     margin-left: 15px;
 }
 .subcategory-text {
-    margin: 0; /* Ensure there's no extra margin */
+    margin: 0; 
 }

@@ -243,7 +243,7 @@ document.querySelector('.dropdown-button').addEventListener('click', toggleDropd
         subcategories: {
             'Paper cut':`لمعرفة الخطوات قم بالضغط على 
             <a href="https://1drv.ms/b/s!Aov6g2brkEr1q2llJsAwEKDbKCr6?e=yVPORM" "target="_blank" style="color: blue; text-decoration: underline;"> دليل نظام ادارة الطابعة</a>`, 
-            'طلب تعريف ماسح ضوئي': `الذهاب الى ملف المشاركة (موجود تحت) بعدها الى مجلد helpdeskdriver بعدها مجلد scanner بعدها على حسب نوع الموديل يتم التعريف`
+            'طلب تعريف ماسح ضوئي': `الذهاب الى ملف المشاركة 192.168.100.63 بعدها الى مجلد helpdeskdriver بعدها مجلد scanner بعدها على حسب نوع الموديل يتم التعريف`
         }
     },
     network: {
@@ -278,7 +278,7 @@ document.querySelector('.dropdown-button').addEventListener('click', toggleDropd
         icon: 'icons/webex.png',
         color: '#D0E6F9',
         subcategories: {
-            'لا توجد ايقونة عمل اجتماعات': `تحميل الأداة عن طريق الدخول الى ملف الشير 192.168.100.63 -< software -< Csico Webex -< تحميل الاداة<br>
+            'لا توجد ايقونة عمل اجتماعات': `تحميل الأداة عن طريق الدخول الى ملف المشاركة 192.168.100.63 < software < Csico Webex < تحميل الاداة<br>
                                             الاسم: webexplugin`
         }
     }
@@ -412,6 +412,18 @@ function goBack() {
         }, 500);
     }
 }
+
+function highlightItem(clickedItem) {
+    // Remove the selected class from all items
+    var items = document.getElementsByClassName('subcategory-item');
+    for (var i = 0; i < items.length; i++) {
+        items[i].classList.remove('selected');
+    }
+
+    // Add the selected class to the clicked item
+    clickedItem.classList.add('selected');
+}
+
     </script>
 </body>
 

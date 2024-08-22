@@ -13,7 +13,7 @@
         <img src="icons/jeddah-municipality-logo-.png" alt="Logo" class="header-logo">
         <div class="logo-search">
             <div class="search-container">
-                <input type="text" placeholder="بحث">
+                <input type="text" id="search-input" placeholder="بحث" >
                 <img src="icons/Search.svg" alt="Search Icon" class="search-icon">
             </div>
 
@@ -36,12 +36,12 @@
             <li class="dropdown">
                 <span class="dropdown-button">الفئات</span>
                 <ul class="dropdown-content">
-                    <li><a href="#webex">طلب ويبكس</a></li>
-                    <li><a href="#printers">الطابعات والباركود</a></li>
-                    <li><a href="#support">دعم تقني</a></li>
-                    <li><a href="#network">الشبكة</a></li>
-                    <li><a href="#email">البريد الالكتروني</a></li>
-                    <li><a href="#cisco">دعم هاتف Cisco</a></li>
+                    <li><a href="#webex"onclick="showSubcategories('webex')">طلب ويبكس</a></li>
+                    <li><a href="#printers"onclick="showSubcategories('printers')">الطابعات والباركود</a></li>
+                    <li><a href="#support"onclick="showSubcategories('support')">دعم تقني</a></li>
+                    <li><a href="#network"onclick="showSubcategories('network')">الشبكة</a></li>
+                    <li><a href="#email"onclick="showSubcategories('email')">البريد الالكتروني</a></li>
+                    <li><a href="#cisco"onclick="showSubcategories('cisco')">دعم هاتف Cisco</a></li>
                 </ul>
             </li>
         </ul>
@@ -123,23 +123,23 @@
             <img src="icons/jeddah-municipality-logo-.png" alt="Right Image">
         </div>
     </footer>
-
     <script>
+        
+        
         function toggleMenu() {
             const menu = document.getElementById('side-menu');
-            console.log('Toggle menu function called');
             menu.classList.toggle('open');
         }
+    
         function toggleDropdown() {
-    const dropdownContent = document.querySelector('.dropdown-content');
-    dropdownContent.classList.toggle('show');
-}
-
-document.querySelector('.dropdown-button').addEventListener('click', toggleDropdown);
-
-
+            const dropdownContent = document.querySelector('.dropdown-content');
+            dropdownContent.classList.toggle('show');
+        }
+    
+        document.querySelector('.dropdown-button').addEventListener('click', toggleDropdown);
+    
         const categories = {
-    email: {
+            email: {
         name: 'البريد الالكتروني',
         icon: 'icons/Email.png',
         color: '#FFE0F2',
@@ -279,151 +279,164 @@ document.querySelector('.dropdown-button').addEventListener('click', toggleDropd
         color: '#D0E6F9',
         subcategories: {
             'لا توجد ايقونة عمل اجتماعات': `تحميل الأداة عن طريق الدخول الى ملف المشاركة 192.168.100.63 < software < Csico Webex < تحميل الاداة<br>
-                                            الاسم: webexplugin`
+            الاسم: webexplugin`
         }
+
     }
+     
 };
 
-function showSubcategories(category) {
-    const selectedCategory = categories[category];
-
-    // Hide the category section with animation
-    const categorySection = document.getElementById('category-section');
-    categorySection.classList.add('hide');
+        function showSubcategories(category) {
+            const selectedCategory = categories[category];
     
-    setTimeout(() => {
-        categorySection.style.display = 'none';
-        
-        const subcategorySection = document.getElementById('subcategory-section');
-        subcategorySection.style.display = 'block';
-        
-        // Delay to allow the browser to acknowledge the display change
-        setTimeout(() => {
-            subcategorySection.classList.add('show');
-        }, 10);
-    }, 500);
-
-    let selectedCategoryElement = document.getElementById('selected-category');
-    selectedCategoryElement.innerHTML = `
-        <img src="${selectedCategory.icon}" alt="${selectedCategory.name}">
-        <p>${selectedCategory.name}</p>
-    `;
-
-    const subcategoryGrid = document.getElementById('subcategory-grid');
-    subcategoryGrid.innerHTML = '';
-
-    for (let sub in selectedCategory.subcategories) {
-        subcategoryGrid.innerHTML += `
-            <div class="subcategory" onclick="showSolution('${category}', '${sub}')" style="box-shadow: 1px 3px 3px ${selectedCategory.color};">
-                <img src="icons/arrow-left-01.svg" alt="Arrow Icon" class="arrow-icon">
-                <p class="subcategory-text">${sub}</p>
-            </div>
-        `;
-    }
-
-    // Set the selected category in the breadcrumb
-    document.getElementById('selected-category-breadcrumb').textContent = selectedCategory.name;
-
-    const subcategoryContainer = document.getElementById('subcategory-container');
-    subcategoryContainer.innerHTML = '';
-
-    for (let sub in selectedCategory.subcategories) {
-        subcategoryContainer.innerHTML += `
-            <div class="subcategory-item" onclick="showSolution('${category}', '${sub}')">
-                <img src="icons/Polygon 13.png" alt="Polegone Logo" class="polegone-logo">
-                <p class="subcategory-text">${sub}</p>
-            </div>
-        `;
-    }
-}
-
-function showSolution(category, subcategory) {
-    const selectedCategory = categories[category];
-    const solutionText = selectedCategory.subcategories[subcategory];
-
-    // Hide the intro section when displaying the solution section
-    const introSection = document.getElementById('intro-section');
-    if (introSection) {
-        introSection.style.display = 'none';
-    }
-
-    // Hide the subcategory section and show the solution section
-    const subcategorySection = document.getElementById('subcategory-section');
-    subcategorySection.classList.remove('show');
-    
-    setTimeout(() => {
-        subcategorySection.style.display = 'none';
-        
-        const solutionSection = document.getElementById('solution-section');
-        solutionSection.style.display = 'block';
-        
-        // Show the solution box and set its content
-        const solutionBox = document.getElementById('solution-box');
-        solutionBox.style.display = 'block';
-        
-        document.getElementById('solution-content').innerHTML = `
-            <p>${solutionText}</p>
-        `;
-        
-        // Delay to allow the browser to acknowledge the display change
-        setTimeout(() => {
-            solutionSection.classList.add('show');
-        }, 10);
-    }, 500);
-}
-function goBack() {
-    const solutionSection = document.getElementById('solution-section');
-    const subcategorySection = document.getElementById('subcategory-section');
-    const categorySection = document.getElementById('category-section');
-    const introSection = document.getElementById('intro-section');
-
-    if (solutionSection.style.display === 'block') {
-        // If currently in the solution section, go back to subcategories
-        solutionSection.classList.remove('show');
-        
-        setTimeout(() => {
-            solutionSection.style.display = 'none';
-            subcategorySection.style.display = 'block';
-            
-            // Delay to allow the browser to acknowledge the display change
-            setTimeout(() => {
-                subcategorySection.classList.add('show');
-            }, 10);
-        }, 500);
-        
-        // Show the intro section again
-        if (introSection) {
-            introSection.style.display = 'block';
+             // Hide all sections
+    const sections = [ 'solution-section'];
+    sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.classList.remove('show');
+            section.style.display = 'none';
         }
-        
-    } else if (subcategorySection.style.display === 'block') {
-        // If currently in the subcategories section, go back to categories
-        subcategorySection.classList.remove('show');
-        
-        setTimeout(() => {
-            subcategorySection.style.display = 'none';
-            categorySection.style.display = 'block';
-            categorySection.classList.remove('hide');
-
-            // Show the intro section when back at the main categories section
-            if (introSection) {
-                introSection.style.display = 'block';
+    });
+            // Hide the category section with animation
+            const categorySection = document.getElementById('category-section');
+            categorySection.classList.add('hide');
+            
+            setTimeout(() => {
+                categorySection.style.display = 'none';
+                
+                const subcategorySection = document.getElementById('subcategory-section');
+                subcategorySection.style.display = 'block';
+                
+                // Delay to allow the browser to acknowledge the display change
+                setTimeout(() => {
+                    subcategorySection.classList.add('show');
+                }, 10);
+            }, 500);
+    
+            let selectedCategoryElement = document.getElementById('selected-category');
+            selectedCategoryElement.innerHTML = `
+                <img src="${selectedCategory.icon}" alt="${selectedCategory.name}">
+                <p>${selectedCategory.name}</p>
+            `;
+    
+            const subcategoryGrid = document.getElementById('subcategory-grid');
+            subcategoryGrid.innerHTML = '';
+    
+            for (let sub in selectedCategory.subcategories) {
+                subcategoryGrid.innerHTML += `
+                    <div class="subcategory" onclick="showSolution('${category}', '${sub}')" style="box-shadow: 1px 3px 3px ${selectedCategory.color};">
+                        <img src="icons/arrow-left-01.svg" alt="Arrow Icon" class="arrow-icon">
+                        <p class="subcategory-text">${sub}</p>
+                    </div>
+                `;
             }
-        }, 500);
-    }
-}
-
-function highlightItem(clickedItem) {
-    // Remove the selected class from all items
-    var items = document.getElementsByClassName('subcategory-item');
-    for (var i = 0; i < items.length; i++) {
-        items[i].classList.remove('selected');
-    }
-
-    // Add the selected class to the clicked item
-    clickedItem.classList.add('selected');
-}
-
+    
+            // Set the selected category in the breadcrumb
+            document.getElementById('selected-category-breadcrumb').textContent = selectedCategory.name;
+    
+            const subcategoryContainer = document.getElementById('subcategory-container');
+            subcategoryContainer.innerHTML = '';
+    
+            for (let sub in selectedCategory.subcategories) {
+                subcategoryContainer.innerHTML += `
+                    <div class="subcategory-item" onclick="selectSubcategory(this, '${category}', '${sub}')">
+                        <img src="icons/Polygon 13.png" alt="Polygon Logo" class="polygon-logo">
+                        <p class="subcategory-text">${sub}</p>
+                    </div>
+                `;
+            }
+        }
+    
+        function selectSubcategory(element, category, sub) {
+            // Remove 'selected' class from all subcategory items
+            document.querySelectorAll('.subcategory-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+    
+            // Add 'selected' class to the clicked item
+            element.classList.add('selected');
+    
+            // Optionally, call the showSolution function or any other logic
+            showSolution(category, sub);
+        }
+    
+        function showSolution(category, subcategory) {
+            const selectedCategory = categories[category];
+            const solutionText = selectedCategory.subcategories[subcategory];
+    
+            // Hide the intro section when displaying the solution section
+            const introSection = document.getElementById('intro-section');
+            if (introSection) {
+                introSection.style.display = 'none';
+            }
+    
+            // Hide the subcategory section and show the solution section
+            const subcategorySection = document.getElementById('subcategory-section');
+            subcategorySection.classList.remove('show');
+            
+            setTimeout(() => {
+                subcategorySection.style.display = 'none';
+                
+                const solutionSection = document.getElementById('solution-section');
+                solutionSection.style.display = 'block';
+                
+                // Show the solution box and set its content
+                const solutionBox = document.getElementById('solution-box');
+                solutionBox.style.display = 'block';
+                
+                document.getElementById('solution-content').innerHTML = `
+                    <p>${solutionText}</p>
+                `;
+                
+                // Delay to allow the browser to acknowledge the display change
+                setTimeout(() => {
+                    solutionSection.classList.add('show');
+                }, 10);
+            }, 500);
+        }
+    
+        function goBack() {
+            const solutionSection = document.getElementById('solution-section');
+            const subcategorySection = document.getElementById('subcategory-section');
+            const categorySection = document.getElementById('category-section');
+            const introSection = document.getElementById('intro-section');
+    
+            if (solutionSection.style.display === 'block') {
+                // If currently in the solution section, go back to subcategories
+                solutionSection.classList.remove('show');
+                
+                setTimeout(() => {
+                    solutionSection.style.display = 'none';
+                    subcategorySection.style.display = 'block';
+                    
+                    // Delay to allow the browser to acknowledge the display change
+                    setTimeout(() => {
+                        subcategorySection.classList.add('show');
+                    }, 10);
+                }, 500);
+                
+                // Show the intro section again
+                if (introSection) {
+                    introSection.style.display = 'block';
+                }
+                
+            } else if (subcategorySection.style.display === 'block') {
+                // If currently in the subcategories section, go back to categories
+                subcategorySection.classList.remove('show');
+                
+                setTimeout(() => {
+                    subcategorySection.style.display = 'none';
+                    categorySection.style.display = 'block';
+                    categorySection.classList.remove('hide');
+    
+                    // Show the intro section when back at the main categories section
+                    if (introSection) {
+                        introSection.style.display = 'block';
+                    }
+                }, 500);
+            }
+        }
     </script>
 </body>
 
